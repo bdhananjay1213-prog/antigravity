@@ -1,0 +1,253 @@
+@import 'leaflet/dist/leaflet.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── RESET ─────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ─── TYPOGRAPHY SYSTEM ──────────────────────────────────────────── */
+:root {
+  --font-display: 'Cabinet Grotesk', system-ui, sans-serif;
+  --font-body:    'Satoshi', system-ui, sans-serif;
+
+  /* Cinematic palette */
+  --c-bg:         #050505;
+  --c-surface:    rgba(255,255,255,0.06);
+  --c-border:     rgba(255,255,255,0.12);
+  --c-border-hi:  rgba(255,255,255,0.22);
+  --c-text:       #ffffff;
+  --c-muted:      rgba(255,255,255,0.45);
+
+  /* Gradient stops */
+  --g1: #4f46e5;
+  --g2: #7c3aed;
+  --g3: #f59e0b;
+  --g4: #db2777;
+
+  /* Timing */
+  --ease-cinema: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─── GLOBAL BASE ────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: transparent;
+  color: var(--c-text);
+  font-family: var(--font-body);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+  /* The GooeyGradientBackground wrapper fills the root */
+}
+
+/* Transparent page wrapper — use instead of background:#050505 */
+.page-wrapper {
+  min-height: 100vh;
+  background: transparent;
+  padding-bottom: 4rem;
+}
+
+/* ─── DISPLAY TYPOGRAPHY ─────────────────────────────────────────── */
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* ─── VIBRANT ANIMATED GRADIENT BG ──────────────────────────────── */
+@keyframes gradient-flow {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+.vibrant-bg {
+  background: linear-gradient(135deg, var(--g1), var(--g2), var(--g3), var(--g4));
+  background-size: 400% 400%;
+  animation: gradient-flow 15s ease infinite;
+}
+
+.vibrant-text {
+  background: linear-gradient(135deg, var(--g1), var(--g2), var(--g3), var(--g4));
+  background-size: 400% 400%;
+  animation: gradient-flow 15s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── GLASSMORPHISM ──────────────────────────────────────────────── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 1.25rem;
+}
+
+.glass-card-hi {
+  background: rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 1.5rem;
+}
+
+/* ─── CONTENT REVEAL ANIMATION ───────────────────────────────────── */
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(16px);
+    filter: blur(40px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0px);
+  }
+}
+
+.reveal {
+  animation: reveal 0.8s var(--ease-cinema) forwards;
+}
+
+.reveal-delay-1 { animation-delay: 0.15s; opacity: 0; }
+.reveal-delay-2 { animation-delay: 0.30s; opacity: 0; }
+.reveal-delay-3 { animation-delay: 0.45s; opacity: 0; }
+.reveal-delay-4 { animation-delay: 0.60s; opacity: 0; }
+
+/* ─── BUTTONS ────────────────────────────────────────────────────── */
+.btn-solid {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  background: #ffffff;
+  color: #050505;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.25s var(--ease-cinema), box-shadow 0.25s var(--ease-cinema), opacity 0.25s var(--ease-cinema);
+}
+
+.btn-solid:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 32px rgba(255,255,255,0.18);
+}
+
+.btn-solid:active { transform: scale(0.98); }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  background: transparent;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  border: 1px solid rgba(255,255,255,0.30);
+  cursor: pointer;
+  transition: border-color 0.25s var(--ease-cinema), background 0.25s var(--ease-cinema), transform 0.25s var(--ease-cinema);
+}
+
+.btn-outline:hover {
+  border-color: rgba(255,255,255,0.70);
+  background: rgba(255,255,255,0.06);
+  transform: scale(1.03);
+}
+
+.btn-gradient {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--g1), var(--g2), var(--g3), var(--g4));
+  background-size: 300% 300%;
+  animation: gradient-flow 8s ease infinite;
+  color: #fff;
+  transition: transform 0.25s var(--ease-cinema), box-shadow 0.25s var(--ease-cinema);
+}
+
+.btn-gradient:hover {
+  transform: scale(1.04);
+  box-shadow: 0 10px 40px rgba(124,58,237,0.5);
+}
+
+/* ─── INPUTS ─────────────────────────────────────────────────────── */
+.cin-input {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 0.875rem;
+  padding: 0.875rem 1.25rem;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s var(--ease-cinema), background 0.3s var(--ease-cinema);
+}
+
+.cin-input::placeholder {
+  color: rgba(255,255,255,0.35);
+}
+
+.cin-input:focus {
+  border-color: rgba(255,255,255,0.45);
+  background: rgba(255,255,255,0.09);
+}
+
+/* ─── SCROLLBAR ──────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: rgba(255,255,255,0.04); }
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.18);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.35); }
+
+/* ─── LEAFLET OVERRIDES FOR DARK THEME ───────────────────────────── */
+.leaflet-container {
+  border-radius: 1rem;
+  background: #0d0d0d;
+}

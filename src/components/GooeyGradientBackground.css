@@ -1,0 +1,172 @@
+/* ─── GOOEY GRADIENT BACKGROUND ──────────────────────────────────── */
+/* Color palette tuned to match Kerala cinematic design system:       */
+/* indigo #4f46e5, violet #7c3aed, amber #f59e0b, pink #db2777        */
+
+.gooey-wrapper {
+  --color-bg1: rgb(3, 2, 12);
+  --color-bg2: rgb(8, 2, 20);
+  --color1: 79, 70, 229;       /* indigo  --g1 */
+  --color2: 124, 58, 237;      /* violet  --g2 */
+  --color3: 219, 39, 119;      /* pink    --g4 */
+  --color4: 245, 158, 11;      /* amber   --g3 */
+  --color5: 59, 38, 160;       /* deep-indigo for depth */
+  --color-interactive: 124, 58, 237; /* violet mouse blob */
+  --circle-size: 80%;
+  --blending: hard-light;
+
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Blob keyframes ─────────────────────────────────────────────── */
+@keyframes goo-moveInCircle {
+  0%   { transform: rotate(0deg); }
+  50%  { transform: rotate(180deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes goo-moveVertical {
+  0%   { transform: translateY(-50%); }
+  50%  { transform: translateY(50%); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes goo-moveHorizontal {
+  0%   { transform: translateX(-50%) translateY(-10%); }
+  50%  { transform: translateX(50%)  translateY(10%);  }
+  100% { transform: translateX(-50%) translateY(-10%); }
+}
+
+/* ── Fixed full-screen gradient base ───────────────────────────── */
+.goo-gradient-bg {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(40deg, var(--color-bg1), var(--color-bg2));
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Hidden SVG filter definition */
+.goo-gradient-bg svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* Container that the goo filter is applied to */
+.goo-gradients-container {
+  filter: url(#kerala-goo) blur(40px);
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Individual animated blobs ──────────────────────────────────── */
+.goo-g1 {
+  position: absolute;
+  background: radial-gradient(
+    circle at center,
+    rgba(var(--color1), 0.85) 0%,
+    rgba(var(--color1), 0)    50%
+  ) no-repeat;
+  mix-blend-mode: var(--blending);
+  width:  var(--circle-size);
+  height: var(--circle-size);
+  top:  calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2);
+  transform-origin: center center;
+  animation: goo-moveVertical 30s ease infinite;
+  opacity: 1;
+}
+
+.goo-g2 {
+  position: absolute;
+  background: radial-gradient(
+    circle at center,
+    rgba(var(--color2), 0.85) 0%,
+    rgba(var(--color2), 0)    50%
+  ) no-repeat;
+  mix-blend-mode: var(--blending);
+  width:  var(--circle-size);
+  height: var(--circle-size);
+  top:  calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2);
+  transform-origin: calc(50% - 400px);
+  animation: goo-moveInCircle 20s reverse infinite;
+  opacity: 1;
+}
+
+.goo-g3 {
+  position: absolute;
+  background: radial-gradient(
+    circle at center,
+    rgba(var(--color3), 0.85) 0%,
+    rgba(var(--color3), 0)    50%
+  ) no-repeat;
+  mix-blend-mode: var(--blending);
+  width:  var(--circle-size);
+  height: var(--circle-size);
+  top:  calc(50% - var(--circle-size) / 2 + 200px);
+  left: calc(50% - var(--circle-size) / 2 - 500px);
+  transform-origin: calc(50% + 400px);
+  animation: goo-moveInCircle 40s linear infinite;
+  opacity: 0.9;
+}
+
+.goo-g4 {
+  position: absolute;
+  background: radial-gradient(
+    circle at center,
+    rgba(var(--color4), 0.8) 0%,
+    rgba(var(--color4), 0)   50%
+  ) no-repeat;
+  mix-blend-mode: var(--blending);
+  width:  var(--circle-size);
+  height: var(--circle-size);
+  top:  calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2);
+  transform-origin: calc(50% - 200px);
+  animation: goo-moveHorizontal 40s ease infinite;
+  opacity: 0.6;
+}
+
+.goo-g5 {
+  position: absolute;
+  background: radial-gradient(
+    circle at center,
+    rgba(var(--color5), 0.9) 0%,
+    rgba(var(--color5), 0)   50%
+  ) no-repeat;
+  mix-blend-mode: var(--blending);
+  width:  calc(var(--circle-size) * 2);
+  height: calc(var(--circle-size) * 2);
+  top:  calc(50% - var(--circle-size));
+  left: calc(50% - var(--circle-size));
+  transform-origin: calc(50% - 800px) calc(50% + 200px);
+  animation: goo-moveInCircle 20s ease infinite;
+  opacity: 1;
+}
+
+/* ── Mouse-following interactive blob ───────────────────────────── */
+.goo-interactive {
+  position: absolute;
+  background: radial-gradient(
+    circle at center,
+    rgba(var(--color-interactive), 0.7) 0%,
+    rgba(var(--color-interactive), 0)   50%
+  ) no-repeat;
+  mix-blend-mode: var(--blending);
+  width: 100%;
+  height: 100%;
+  top:  -50%;
+  left: -50%;
+  opacity: 0.6;
+  /* transform updated by JS */
+}
