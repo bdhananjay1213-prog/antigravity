@@ -19,7 +19,7 @@ export default function AdminDashboard() {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.6, ease: 'easeInOut' }}
+      transition={{ duration: 0.6 }}
       style={{ minHeight: '100vh', padding: '2rem' }}
     >
       <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 70% 40% at 50% 0%, rgba(79,70,229,0.12) 0%, transparent 70%)' }} />
@@ -50,7 +50,7 @@ export default function AdminDashboard() {
               key={i}
               initial={{ opacity: 0, y: 24, scale: 0.95, filter: 'blur(12px)' }}
               animate={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
-              transition={{ duration: 0.6, delay: i * 0.12, ease: 'easeInOut' }}
+              transition={{ duration: 0.6, delay: i * 0.12 }}
               className="glass-card"
               style={{ padding: '1.75rem' }}
             >

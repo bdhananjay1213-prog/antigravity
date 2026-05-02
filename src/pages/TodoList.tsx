@@ -49,14 +49,14 @@ export default function TodoList() {
   }
   const itemV = {
     hidden: { opacity: 0, y: 12, filter: 'blur(8px)' },
-    visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.5, ease: 'easeInOut' } }
+    visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.6 } }
   }
 
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.6 }}
       style={{ minHeight: '100vh', paddingBottom: '5rem' }}
     >
       <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 0%, rgba(59,130,246,0.12) 0%, transparent 70%)' }} />
@@ -91,7 +91,7 @@ export default function TodoList() {
                 initial={{ width: 0 }}
                 animate={{ width: `${progress}%` }}
                 style={{ height: '100%', background: 'linear-gradient(90deg, #4f46e5, #7c3aed)', borderRadius: '9999px' }}
-                transition={{ duration: 0.8, ease: 'circOut' }}
+                transition={{ duration: 0.6 }}
               />
             </div>
           </motion.div>

@@ -52,14 +52,14 @@ export default function Login() {
       {/* Floating compass watermark */}
       <motion.div
         animate={{ y: [0, -18, 0], opacity: [0.04, 0.07, 0.04] }}
-        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+        transition={{ duration: 0.6, repeat: Infinity }}
         style={{ position: 'absolute', top: '10%', left: '8%', color: '#fff' }}
       >
         <MapPin size={140} />
       </motion.div>
       <motion.div
         animate={{ y: [0, 14, 0], opacity: [0.03, 0.05, 0.03] }}
-        transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+        transition={{ duration: 0.6, repeat: Infinity, delay: 2 }}
         style={{ position: 'absolute', bottom: '12%', right: '10%', color: '#fff' }}
       >
         <MapPin size={100} />
@@ -69,7 +69,7 @@ export default function Login() {
       <motion.div
         initial={{ opacity: 0, scale: 0.95, filter: 'blur(40px)' }}
         animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-        transition={{ duration: 0.8, ease: 'easeInOut' }}
+        transition={{ duration: 0.6 }}
         className="relative z-10 w-full max-w-md mx-4"
       >
         <div className="glass-card-hi" style={{ padding: '2.5rem' }}>
@@ -141,7 +141,7 @@ export default function Login() {
                 initial={{ opacity: 0, x: -16, filter: 'blur(8px)' }}
                 animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
                 exit={{ opacity: 0, x: 16, filter: 'blur(8px)' }}
-                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                transition={{ duration: 0.6 }}
                 style={{ display: 'flex', flexDirection: 'column', gap: '0.875rem' }}
               >
                 <p style={{ textAlign: 'center', fontFamily: 'Satoshi, sans-serif', fontSize: '0.85rem', color: 'rgba(255,255,255,0.45)', marginBottom: '0.5rem' }}>
@@ -176,7 +176,7 @@ export default function Login() {
                 initial={{ opacity: 0, x: 16, filter: 'blur(8px)' }}
                 animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
                 exit={{ opacity: 0, x: -16, filter: 'blur(8px)' }}
-                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                transition={{ duration: 0.6 }}
               >
                 <p style={{ textAlign: 'center', fontFamily: 'Satoshi, sans-serif', fontSize: '0.82rem', color: 'rgba(255,255,255,0.4)', marginBottom: '1.25rem' }}>
                   Restricted access. Use <strong style={{ color: 'rgba(255,255,255,0.7)' }}>admin@test.com</strong>

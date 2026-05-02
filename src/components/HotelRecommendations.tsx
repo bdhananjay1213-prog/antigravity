@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Hotel, Star, MapPin, Phone, Coffee } from 'lucide-react'
+import { Hotel, Star, MapPin, Phone } from 'lucide-react'
 import axios from 'axios'
 import { motion } from 'framer-motion'
 
@@ -56,7 +56,7 @@ export default function HotelRecommendations({ destination, currentLocation }: {
 
   const itemV = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeInOut' } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
   }
 
   return (

@@ -62,14 +62,14 @@ export default function TripPlanner() {
   }
   const item = {
     hidden:  { opacity: 0, y: 20, filter: 'blur(8px)' },
-    visible: { opacity: 1, y: 0,  filter: 'blur(0px)', transition: { duration: 0.55, ease: 'easeInOut' } },
+    visible: { opacity: 1, y: 0,  filter: 'blur(0px)', transition: { duration: 0.6 } },
   }
 
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.5, ease: 'easeInOut' }}
+      transition={{ duration: 0.6 }}
       style={{ minHeight: '100vh', paddingBottom: '4rem' }}
     >
       {/* Ambient glow */}
@@ -152,7 +152,7 @@ export default function TripPlanner() {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, ease: 'easeInOut' }}
+            transition={{ duration: 0.6 }}
             className="glass-card"
             style={{ padding: '4rem', textAlign: 'center' }}
           >

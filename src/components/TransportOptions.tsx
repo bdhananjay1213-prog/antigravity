@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Car, Train as TrainIcon, ArrowRight, Clock, ShieldCheck } from 'lucide-react'
+import { Car, Train as TrainIcon, ArrowRight, Clock } from 'lucide-react'
 import { getAvailableCabs, CabOption } from '../services/CabService'
 import { getTrainSchedules, Train } from '../services/TrainService'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -93,15 +93,15 @@ export default function TransportOptions({ mode, onModeChange, destination }: { 
               <div key={i} className="glass-card flex items-center justify-between" style={{ padding: '1.25rem', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
                 <div className="flex items-center gap-4">
                   <div style={{ width: '64px', height: '64px', borderRadius: '1rem', background: 'rgba(255,255,255,0.06)', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)' }}>
-                    <img src={c.image} alt="" style={{ width: '100%', height: '100%', objectCover: 'cover' }} />
+                    <img src={c.image} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   </div>
                   <div>
                     <h4 style={{ fontFamily: 'Cabinet Grotesk', fontWeight: 700, color: '#fff', fontSize: '1.1rem' }}>{c.type}</h4>
                     <div className="flex items-center gap-3 mt-1">
-                       <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.3)' }}>{c.capacity}</span>
-                       <div className="flex items-center gap-1" style={{ color: '#10b981', fontSize: '0.75rem', fontWeight: 700 }}>
-                         <Clock size={12} /> {c.eta}
-                       </div>
+                      <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.3)' }}>{c.capacity}</span>
+                      <div className="flex items-center gap-1" style={{ color: '#10b981', fontSize: '0.75rem', fontWeight: 700 }}>
+                        <Clock size={12} /> {c.eta}
+                      </div>
                     </div>
                   </div>
                 </div>

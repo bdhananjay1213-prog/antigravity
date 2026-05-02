@@ -20,7 +20,7 @@ interface WeatherCardProps {
 export default function WeatherCard({ destination, coordinates }: WeatherCardProps) {
   const [weather, setWeather] = useState<WeatherData | null>(null)
   const [loading, setLoading] = useState(false)
-  const [error, setError] = useState<string | null>(null)
+  const [_, setError] = useState<string | null>(null)
 
   useEffect(() => {
     if (destination || coordinates) fetchWeather()

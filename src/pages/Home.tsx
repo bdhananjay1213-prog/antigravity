@@ -39,14 +39,14 @@ export default function Home() {
   const cardV = {
     hidden:  { opacity: 0, y: 28, scale: 0.95, filter: 'blur(12px)' },
     visible: { opacity: 1, y: 0,  scale: 1,    filter: 'blur(0px)',
-      transition: { duration: 0.6, ease: 'easeInOut' } },
+      transition: { duration: 0.6 } },
   }
 
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.5, ease: 'easeInOut' }}
+      transition={{ duration: 0.6 }}
       style={{ minHeight: '100vh' }}
     >
       {/* Logout */}
@@ -66,7 +66,7 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, y: 20, filter: 'blur(20px)' }}
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            transition={{ duration: 0.7, ease: 'easeInOut' }}
+            transition={{ duration: 0.6 }}
           >
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs uppercase tracking-widest mb-8"
               style={{ border: '1px solid rgba(255,255,255,0.18)', background: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.7)', fontFamily: 'Satoshi, sans-serif', fontWeight: 500 }}>
@@ -78,7 +78,7 @@ export default function Home() {
           <motion.h1
             initial={{ opacity: 0, y: 32, scale: 0.95, filter: 'blur(30px)' }}
             animate={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
-            transition={{ duration: 0.9, delay: 0.1, ease: 'easeInOut' }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             style={{ fontFamily: 'Cabinet Grotesk, sans-serif', fontWeight: 900, letterSpacing: '-0.05em', fontSize: 'clamp(3.5rem, 10vw, 8rem)', lineHeight: 1, color: '#fff', marginBottom: '1.5rem' }}
           >
             Unlock <span className="vibrant-text">Kerala</span>
@@ -87,7 +87,7 @@ export default function Home() {
           <motion.p
             initial={{ opacity: 0, y: 20, filter: 'blur(20px)' }}
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            transition={{ duration: 0.7, delay: 0.2, ease: 'easeInOut' }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '1.2rem', color: 'rgba(255,255,255,0.55)', maxWidth: '520px', margin: '0 auto 3rem', lineHeight: 1.6 }}
           >
             Your intelligent cinematic companion for God's Own Country.
@@ -97,7 +97,7 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, scale: 0.92, filter: 'blur(20px)' }}
             animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-            transition={{ duration: 0.7, delay: 0.35, ease: 'easeInOut' }}
+            transition={{ duration: 0.6, delay: 0.35 }}
             className="glass-card-hi max-w-2xl mx-auto p-2 flex gap-2"
             style={{ borderRadius: '9999px' }}
           >
@@ -122,7 +122,7 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5, ease: 'easeInOut' }}
+            transition={{ duration: 0.6, delay: 0.5 }}
             className="flex flex-wrap justify-center gap-2 mt-6"
           >
             {['Munnar', 'Alleppey', 'Wayanad', 'Kovalam', 'Thekkady'].map((place) => (
@@ -144,7 +144,7 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, y: 24, filter: 'blur(20px)' }}
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            transition={{ duration: 0.7, delay: 0.55, ease: 'easeInOut' }}
+            transition={{ duration: 0.6, delay: 0.55 }}
           >
             <div className="flex items-center gap-2 mb-3">
               <Zap size={14} style={{ color: '#f59e0b' }} />
@@ -162,7 +162,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, ease: 'easeInOut' }}
+            transition={{ duration: 0.6 }}
             style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '0.7rem', letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: '1rem' }}
           >
             Everything you need
@@ -171,7 +171,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20, scale: 0.96, filter: 'blur(16px)' }}
             whileInView={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: 'easeInOut' }}
+            transition={{ duration: 0.6 }}
             style={{ fontFamily: 'Cabinet Grotesk, sans-serif', fontWeight: 900, letterSpacing: '-0.05em', fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', color: '#fff', lineHeight: 1 }}
           >
             Travel, redefined.
@@ -191,7 +191,7 @@ export default function Home() {
               id={`feature-${feature.title.replace(/\s+/g, '-').toLowerCase()}`}
               variants={cardV}
               onClick={feature.action}
-              whileHover={{ y: -6, transition: { duration: 0.3, ease: 'easeInOut' } }}
+              whileHover={{ y: -6, transition: { duration: 0.6 } }}
               className="glass-card text-left group"
               style={{ padding: '1.75rem', cursor: 'pointer', position: 'relative', overflow: 'hidden' }}
             >
