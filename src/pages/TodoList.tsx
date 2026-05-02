@@ -49,7 +49,7 @@ export default function TodoList() {
   }
   const itemV = {
     hidden: { opacity: 0, y: 12, filter: 'blur(8px)' },
-    visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] } }
+    visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.5, ease: 'easeInOut' } }
   }
 
   return (

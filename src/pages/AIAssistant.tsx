@@ -121,7 +121,7 @@ export default function AIAssistant() {
     <motion.div
       initial={{ opacity: 0, filter: 'blur(20px)' }}
       animate={{ opacity: 1, filter: 'blur(0px)' }}
-      transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
+      transition={{ duration: 0.7, ease: 'easeInOut' }}
       style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}
     >
       {/* Bg glow */}
@@ -154,7 +154,7 @@ export default function AIAssistant() {
                 key={index}
                 initial={{ opacity: 0, y: 12, scale: 0.97 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                transition={{ duration: 0.4, ease: 'easeInOut' }}
                 style={{ display: 'flex', justifyContent: msg.role === 'user' ? 'flex-end' : 'flex-start' }}
               >
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.625rem', flexDirection: msg.role === 'user' ? 'row-reverse' : 'row', maxWidth: '80%' }}>

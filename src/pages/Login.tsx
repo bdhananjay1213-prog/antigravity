@@ -69,7 +69,7 @@ export default function Login() {
       <motion.div
         initial={{ opacity: 0, scale: 0.95, filter: 'blur(40px)' }}
         animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-        transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+        transition={{ duration: 0.8, ease: 'easeInOut' }}
         className="relative z-10 w-full max-w-md mx-4"
       >
         <div className="glass-card-hi" style={{ padding: '2.5rem' }}>
@@ -141,7 +141,7 @@ export default function Login() {
                 initial={{ opacity: 0, x: -16, filter: 'blur(8px)' }}
                 animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
                 exit={{ opacity: 0, x: 16, filter: 'blur(8px)' }}
-                transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
                 style={{ display: 'flex', flexDirection: 'column', gap: '0.875rem' }}
               >
                 <p style={{ textAlign: 'center', fontFamily: 'Satoshi, sans-serif', fontSize: '0.85rem', color: 'rgba(255,255,255,0.45)', marginBottom: '0.5rem' }}>
@@ -176,7 +176,7 @@ export default function Login() {
                 initial={{ opacity: 0, x: 16, filter: 'blur(8px)' }}
                 animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
                 exit={{ opacity: 0, x: -16, filter: 'blur(8px)' }}
-                transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
               >
                 <p style={{ textAlign: 'center', fontFamily: 'Satoshi, sans-serif', fontSize: '0.82rem', color: 'rgba(255,255,255,0.4)', marginBottom: '1.25rem' }}>
                   Restricted access. Use <strong style={{ color: 'rgba(255,255,255,0.7)' }}>admin@test.com</strong>
